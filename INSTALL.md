@@ -4,9 +4,9 @@ This script depends on following python libraries:
 * PrettyTable
 
 To install:
-pip install requests
-pip install beautifulsoup4
-pip install PrettyTable
+* pip install requests
+* pip install beautifulsoup4
+* pip install PrettyTable
 
 To fetch tweets you must 
 go to <http://dev.twitter.com/apps/new> to create an app and get values
