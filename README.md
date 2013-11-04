@@ -2,9 +2,9 @@ get-popular-tweets-about-deredactie
 ===================================
 
 Small script that loads the last 500 tweets that match with 'deredactie'. Then it tries to get the correct url's pointing to
-deredactie.be by unshorten all bit.ly, iff.tt links. In a last step the number of times the url appeated is counted and
+deredactie.be by unshorten all bit.ly, iff.tt links. In a last step URL's are counted, sorted and
 tabulated. In order to match url's, the permalink is retrieved. Remark that mobile versions have their own permalink
-that is not related to the 'desktop' version.
+that is not related to the 'desktop' version and hence are counted as seperated articles.
 
 Example output on monday 4 nov 2013 16:19:41 CET running 'python deredactie.py':
 
