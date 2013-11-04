@@ -22,4 +22,4 @@ Look in the file redactie.py for the following strings:
     OAUTH_TOKEN = ''
     OAUTH_TOKEN_SECRET = ''
     
-and fill in your own credentials between the quotes.C
+and fill in your own credentials between the quotes.
