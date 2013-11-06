@@ -36,14 +36,6 @@ prefixes = ['http://www.deredactie.be/cm/vrtnieuws/',
 	        'http://www.deredactie.be/cm/vrtnieuws.francais/',
 	        'http://www.deredactie.be/cm/vrtnieuws.deutsch']
 
-def clean(url):
-	for prefix in prefixes:
-		if url.startswith(prefix):
-			url = url[len(prefix):] # remove prefix
-			url, questionmark, tail = url.partition('?') #remove everything after ?
-			return url
-	return ('error', 'no permalink found')
-
 def is_deredactie_url(url):
 	for prefix in prefixes:
 		if url.startswith(prefix):
@@ -55,7 +47,7 @@ def get_permalink_and_title(url):
 		r = requests.get(url)
 	except:
 		print 'Could not get %s' % url
-		return 'no permalink found'
+		return ('error', 'no permalink found')
 	soup = BeautifulSoup(r.text)
 	if 'm.deredactie' in url:
 		try:
