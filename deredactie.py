@@ -42,7 +42,7 @@ def clean(url):
 			url = url[len(prefix):] # remove prefix
 			url, questionmark, tail = url.partition('?') #remove everything after ?
 			return url
-	return 'no prefix found'
+	return ('error', 'no permalink found')
 
 def is_deredactie_url(url):
 	for prefix in prefixes:
