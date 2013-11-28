@@ -95,7 +95,7 @@ unshortend_urls = []
 titles = {}
 
 for url in urls:
-	if 'hln.be' in url:
+	if 'gva.be' in url:
 		unshortend_url = url
 	else:
 		print 'Unshorten %s' % url
