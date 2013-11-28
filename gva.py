@@ -40,7 +40,24 @@ def get_title(url):
 		print 'no title found for %s' % url
 		return "no title found"
 	return title
-
+	
+def get_title_and_text(url):
+	try:
+		r = requests.get(url)
+	except:
+		print 'Could not get %s' % url
+		return ('no title found',"")
+	soup = BeautifulSoup(r.text)
+	try:
+		title = soup.find("meta", {"name":"title"})['content']
+		art_text = ''
+		for sibling in soup.find('span',attrs={"class":"date-marker"}).find_next_siblings():
+			art_text += sibling.text
+	except:
+		print 'no title or article text found for %s' % url
+		return ("no title found","")
+	return (title, art_text)
+	
 # XXX: Go to http://dev.twitter.com/apps/new to create an app and get values
 # for these credentials, which you'll need to provide in place of these
 # empty string values that are defined as placeholders.
