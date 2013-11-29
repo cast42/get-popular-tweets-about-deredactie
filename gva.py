@@ -124,14 +124,17 @@ unshortend_urls = []
 titles = {}
 
 for url in urls:
-	if 'gva.be' in url:
+	if (url.startswith('http://www.gva.be') or
+		url.startswith('http://m.gva.be/')) and ('.aspx' in url):
 		unshortend_url = url
 	else:
 		print 'Unshorten %s' % url
 		unshortend_url = unshorten(url)
-	title = get_title(unshortend_url)
-	unshortend_urls.append(unshortend_url)
-	titles[unshortend_url] = title
+	(title, art_text) = get_title_and_text(unshortend_url)
+	if title <> 'no title found':
+		unshortend_urls.append(unshortend_url)
+		titles[unshortend_url] = title
+		art_texts[unshortend_url] = art_text
 
 c = Counter(unshortend_urls)
 pt = PrettyTable(field_names=['Title','Count'])
