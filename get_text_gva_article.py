@@ -16,7 +16,6 @@ def get_title_and_text(url):
 		try:
 			title = soup.find("meta", {"name":"title"})['content']
 			art_text = ''.join([sibling.text for sibling in soup.find('span',attrs={"class":"date-marker"}).find_next_siblings()])
-
 		except:
 			print 'no title or article text found for %s' % url
 			return ("no title found","")
